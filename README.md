@@ -18,4 +18,12 @@ render(<h1 className="bg">{str}</h1>, document.getElementById('root'))
 let str = () => 'hello world'
 render(<h1 className="bg">{str()}</h1>, document.getElementById('root'))
 ```
- 
+ JSX循环遍历数组，遍历时候需要提供一个唯一的`key`属性
+ ```js
+ let ele = (
+  <ul>
+    {arr.map((item,index) => <li key={index}>{item}</li>)}
+  </ul>
+)
+render(ele, document.getElementById('root'))
+ ```

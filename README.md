@@ -1,4 +1,5 @@
 # react
+
 给JSX元素加`class`要用`classname`代替
 ```js
 render(<h1 className="bg">hello world</h1>, document.getElementById('root'))
@@ -47,4 +48,24 @@ render(<h1 style={{background: 'red'}}>hello world</h1>, document.getElementById
 ```js
 let str = '<div>插入标签</div>'
 render(<h1 dangerouslySetInnerHTML={{__html: str}}></h1>, document.getElementById('root'))
+```
+## 组件
+组件名开头大写，声明数据有函数声明和类声明两种形式
+```js
+function Temp () {
+  return (
+    <h1>hello world</h1>
+  )
+}
+render(<div><Temp /></div>, document.getElementById('root'))
+```
+可以通过属性来给组件传递参数，函数的参数就是传递的属性参数
+```js
+function Temp (props) {
+  return (
+    <h1>{props.str}</h1>
+  )
+}
+let str = 'hello world'
+render(<div><Temp str={str}/></div>, document.getElementById('root'))
 ```

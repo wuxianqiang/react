@@ -178,3 +178,44 @@ class Child extends React.Component {
 }
 render(<div><Parent></Parent></div>, document.getElementById('root'))
 ```
+## 子组件传递数据给父组件
+```js
+class Parent extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      str: ''
+    }
+  }
+  changeStr = (newStr) => {
+    this.setState({str: newStr})
+  }
+  render() {
+    return (
+      <div>
+        <div>{this.state.str}</div>
+        <div>父组件</div>        
+        <Child change={this.changeStr}/>
+      </div>
+    )
+  }
+}
+
+class Child extends React.Component {
+  constructor (props) {
+    super()
+    this.state = {
+      str: 'hello world'
+    }
+  }
+  render() {
+    return (
+      <div>
+        <div>{this.state.str}</div>
+        <div onClick={()=>{this.props.change(this.state.str)}}>子组件</div>
+      </div>
+    )
+  }
+}
+render(<div><Parent></Parent></div>, document.getElementById('root'))
+```

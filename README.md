@@ -143,3 +143,38 @@ class Temp extends React.Component {
 }
 render(<div><Temp /></div>, document.getElementById('root'))
 ```
+## 父组件传递数据给子组件
+```js
+class Parent extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      num: 1
+    }
+  }
+  render() {
+    return (
+      <div>
+        <div>父组件</div>
+        <div>{this.state.num}</div>
+        <Child num={this.state.num}/>
+      </div>
+    )
+  }
+}
+
+class Child extends React.Component {
+  constructor (props) {
+    super()
+  }
+  render() {
+    return (
+      <div>
+        <div>子组件</div>
+        {this.props.num}
+      </div>
+    )
+  }
+}
+render(<div><Parent></Parent></div>, document.getElementById('root'))
+```

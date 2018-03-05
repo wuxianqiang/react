@@ -119,3 +119,27 @@ class Temp extends React.Component {
 let str = 'hello world'
 render(<div><Temp str={str}/></div>, document.getElementById('root'))
 ```
+设置状态
+```js
+class Temp extends React.Component {
+  constructor (props) {
+    super()
+    this.state = {
+      count: {
+        number: 1
+      }
+    }
+  }
+  handleClick = () => {
+    this.setState({count: {number: this.state.count.number + 1}})
+  }
+  render() {
+    return (
+      <h1 onClick={this.handleClick}>
+        {this.state.count.number}
+      </h1>
+    )
+  }
+}
+render(<div><Temp /></div>, document.getElementById('root'))
+```

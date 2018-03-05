@@ -220,7 +220,7 @@ class Child extends React.Component {
 render(<div><Parent></Parent></div>, document.getElementById('root'))
 ```
 ## 受控组件
-受状态的控制，可以指定默认值
+受状态的控制，可以指定默认值，修改状态必须使用`setState`方法才会导致视图重新渲染
 ```js
 class Input extends React.Component {
   constructor () {

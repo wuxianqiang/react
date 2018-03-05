@@ -219,3 +219,28 @@ class Child extends React.Component {
 }
 render(<div><Parent></Parent></div>, document.getElementById('root'))
 ```
+## 受控组件
+受状态的控制，可以指定默认值
+```js
+class Input extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      val: '请输入'
+    }
+  }
+  changeVal = (e) => {
+    this.setState({val: e.target.value})
+  }
+  render() {
+    return (
+      <div>
+        <input type="text" value={this.state.val} onChange={this.changeVal}/>
+        <div>{this.state.val}</div>
+      </div>
+    )
+  }
+}
+
+render(<div><Input></Input></div>, document.getElementById('root'))
+```

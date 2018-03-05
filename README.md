@@ -50,7 +50,7 @@ let str = '<div>插入标签</div>'
 render(<h1 dangerouslySetInnerHTML={{__html: str}}></h1>, document.getElementById('root'))
 ```
 ## 组件
-组件名开头大写，声明数据有函数声明和类声明两种形式
+组件名开头大写，声明组件有函数声明和类声明两种形式
 ```js
 function Temp () {
   return (
@@ -59,12 +59,34 @@ function Temp () {
 }
 render(<div><Temp /></div>, document.getElementById('root'))
 ```
-可以通过属性来给组件传递参数，函数的参数就是传递的属性参数
+外界可以通过属性的形式来给组件传递参数，函数的参数就是传递的属性
 ```js
 function Temp (props) {
   return (
     <h1>{props.str}</h1>
   )
+}
+let str = 'hello world'
+render(<div><Temp str={str}/></div>, document.getElementById('root'))
+```
+类里面有生命周期，函数声明没有生命周期，状态等
+
+
+首先需要先继承`React.Component`这个类，这个类提供了一些方法供我们使用的方法，组件的结构写在`render`函数里面，函数里面必须要有一个跟节点
+
+在构造函数中获取属性
+```js
+class Temp extends React.Component {
+  constructor (props) {
+    super()
+  }
+  render() {
+    return (
+      <h1>
+        {this.props.str}
+      </h1>
+    )
+  }
 }
 let str = 'hello world'
 render(<div><Temp str={str}/></div>, document.getElementById('root'))

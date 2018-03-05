@@ -91,3 +91,31 @@ class Temp extends React.Component {
 let str = 'hello world'
 render(<div><Temp str={str}/></div>, document.getElementById('root'))
 ```
+## 属性校验
+
+属性校验需要安装第三方模块
+```js
+import PropTypes from 'prop-types'
+```
+```js
+class Temp extends React.Component {
+  static propTypes = {
+    str: PropTypes.string
+  }
+  static defaultProps = {
+    str: 'hello'
+  }
+  constructor (props) {
+    super()
+  }
+  render() {
+    return (
+      <h1>
+        {this.props.str}
+      </h1>
+    )
+  }
+}
+let str = 'hello world'
+render(<div><Temp str={str}/></div>, document.getElementById('root'))
+```

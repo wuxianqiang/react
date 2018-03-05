@@ -7,7 +7,7 @@ JSX注释的写法
 ```js
 render(<h1 className="bg">{/* hello world */}</h1>, document.getElementById('root'))
 ```
-JSX元素中引用变量是要使用大括号包裹
+JSX元素使用JS语法是要使用大括号包裹
 ```js
 let str = ''hello world''
 render(<h1 className="bg">{str}</h1>, document.getElementById('root'))
@@ -27,3 +27,24 @@ render(<h1 className="bg">{str()}</h1>, document.getElementById('root'))
 )
 render(ele, document.getElementById('root'))
  ```
+`<lable></label>`标签的`for`属性要使用`htmlFor`代替
+```js
+let ele = (
+  <div>
+    <label htmlFor="username">
+    用户名:
+    </label>
+    <input type="text" id="username"/>
+  </div>
+)
+render(ele, document.getElementById('root'))
+```
+`style`必须是一个对象的形式
+```js
+render(<h1 style={{background: 'red'}}>hello world</h1>, document.getElementById('root'))
+```
+插入HTML
+```js
+let str = '<div>插入标签</div>'
+render(<h1 dangerouslySetInnerHTML={{__html: str}}></h1>, document.getElementById('root'))
+```

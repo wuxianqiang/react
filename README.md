@@ -308,3 +308,4 @@ class Input extends React.Component {
 render(<div><Input></Input></div>, document.getElementById('root'))
 ```
 ## redux
+[redux](https://github.com/wuxianqiang/redux)

@@ -77,7 +77,6 @@ render(<div><Temp str={str}/></div>, document.getElementById('root'))
 ```
 类里面有生命周期，函数声明没有生命周期，状态等。首先需要先继承`React.Component`这个类，这个类提供了一些方法供我们使用的方法，组件的结构写在`render`函数里面，函数里面必须要有一个跟节点
 
-在构造函数中获取属性
 ```js
 class Temp extends React.Component {
   constructor (props) {
@@ -94,6 +93,8 @@ class Temp extends React.Component {
 let str = 'hello world'
 render(<div><Temp str={str}/></div>, document.getElementById('root'))
 ```
+类里面的`this`是当前实例，实例上有`props`属性，里面是组件所有的属性
+
 ## 属性校验
 
 属性校验需要安装第三方模块

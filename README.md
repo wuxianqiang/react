@@ -305,5 +305,27 @@ class Input extends React.Component {
 
 render(<div><Input></Input></div>, document.getElementById('root'))
 ```
+## 声明周期
+```js
+class Temp extends React.Component {
+  constructor () {
+    console.log(1)
+    super()
+  }
+  componentWillMount () {
+    console.log(2)
+  }
+  componentDidMount () {
+    console.log(4)
+  }
+  render() {
+    console.log(3)
+    return (
+      <h1>hello world</h1>
+    )
+  }
+}
+```
+
 ## redux
 [redux](https://github.com/wuxianqiang/redux)

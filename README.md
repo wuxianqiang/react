@@ -1,5 +1,11 @@
 # react
 
+使用react需要导入两个模块，`react`模块中提供了一些供模板使用的方法，`react-dom`提供了渲染DOM的方法
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+```
+
 给JSX元素加`class`要用`classname`代替
 ```js
 render(<h1 className="bg">hello world</h1>, document.getElementById('root'))
@@ -301,3 +307,4 @@ class Input extends React.Component {
 
 render(<div><Input></Input></div>, document.getElementById('root'))
 ```
+## redux

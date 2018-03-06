@@ -65,7 +65,7 @@ function Temp () {
 }
 render(<div><Temp /></div>, document.getElementById('root'))
 ```
-外界可以通过属性的形式来给组件传递参数，函数的参数就是传递的属性
+外界可以通过属性的形式来给组件传递参数，函数的参数就是传递的属性，参数是一个对象，里面包含传递过来的属性，既是模板，也照常可以当做函数来用，注意函数里面是没有`this`，reat中语法采用严格模式
 ```js
 function Temp (props) {
   return (

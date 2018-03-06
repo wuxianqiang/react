@@ -123,7 +123,7 @@ class Temp extends React.Component {
 let str = 'hello world'
 render(<div><Temp str={str}/></div>, document.getElementById('root'))
 ```
-设置状态
+设置状态，设置状态会自动更新视图，设置状态要使用`setState()`，类里面才有状态
 ```js
 class Temp extends React.Component {
   constructor (props) {

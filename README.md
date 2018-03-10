@@ -305,6 +305,21 @@ class Input extends React.Component {
 
 render(<div><Input></Input></div>, document.getElementById('root'))
 ```
+## 外面控制里面的结构
+```js
+class Temp extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>hello world</h1>
+        {this.props.children}
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<Temp><div>你好</div></Temp>, document.getElementById('root'));
+```
 ## 声明周期
 ```js
 class Temp extends React.Component {

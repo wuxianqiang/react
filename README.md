@@ -341,6 +341,43 @@ class Temp extends React.Component {
   }
 }
 ```
+## 路由
+
+```js
+// path='/'可以匹配所以路径哦，如果不想让其他地方匹配，exact来处理可以精准匹配
+ReactDOM.render(
+  <HashRouter>
+    <div>
+      <Route path='/' exact component={A}/>
+      <Route path='/user' render={()=>{
+        let loginInfo = localStorage.getItem('ass_id')
+        if (!loginInfo) {
+          return (<div>请先登入</div>)
+          // 权限控制
+        }
+        return <B />
+      }}/>
+      <Route path='/user/singin' component={C}/>
+    </div>
+  </HashRouter>,
+  document.getElementById('root')
+);
+```
+基于`<Link/>`组件的`state`属性实现信息传递，URL路径并没有变，隐藏式传递参数，刷新页面数据丢失，这样可以禁止用户刷新
+```js
+<Link to={{pathname: `/custom/detail`, state: {id}} />
+
+//渲染页面
+let {location: {state}} = this.props
+let id = state.id //接收数据，刷新时数据会丢失
+```
+1. `<Link/>`和<NavLink/>相比，后者可以增加一些选中的样式，默认选中的样式是`active`
+2. 必须基于路由渲染才有`history`,`location `,`match `
+3. 如果不是基于路由渲染要增加上面的三个属性要使用`withRouter`
+```js
+import {NavLink, withRouter} from 'react-router-dom'
+export default withRouter(connect((state)=>({...state.custom}),action.custom)(Mheader))
+```
 
 ## redux
 [redux](https://github.com/wuxianqiang/redux)
